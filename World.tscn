@@ -2,7 +2,7 @@
 
 [ext_resource path="res://noisetexture.tres" type="Texture" id=1]
 [ext_resource path="res://noisetexture_small.tres" type="Texture" id=2]
-[ext_resource path="res://boat.glb" type="PackedScene" id=3]
+[ext_resource path="res://boat/boat.glb" type="PackedScene" id=3]
 [ext_resource path="res://Boat.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
