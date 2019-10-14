@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://boat/boat.glb" type="PackedScene" id=1]
+[ext_resource path="res://Boat.gd" type="Script" id=2]
+[ext_resource path="res://boat/SailWhite.material" type="Material" id=3]
+
+[node name="Scene Root" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="SailBackBottom" parent="." index="4"]
+material/0 = ExtResource( 3 )
+
+[node name="SailBackTop" parent="." index="5"]
+material/0 = ExtResource( 3 )
+
+[node name="SailMiddleBottom" parent="." index="6"]
+material/0 = ExtResource( 3 )
+
+[node name="SailMiddleTop" parent="." index="7"]
+material/0 = ExtResource( 3 )
+
+[node name="SailFrontBottom" parent="." index="8"]
+material/0 = ExtResource( 3 )
+
+[node name="SailFrontTop" parent="." index="9"]
+material/0 = ExtResource( 3 )
