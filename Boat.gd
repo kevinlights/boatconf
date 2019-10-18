@@ -1,8 +1,8 @@
-extends Spatial
+extends KinematicBody
 
 export var player_id = 0
 
-const MAX_SPEED = 0.1
+const MAX_SPEED = 5.0
 const ACCEL = 0.02
 const MAX_TURN_SPEED = 0.02
 const TURN_ACCEL = 0.05
@@ -20,7 +20,7 @@ func _physics_process(delta):
 		speed = speed * (1.0 - ACCEL) + MAX_SPEED * ACCEL
 	else:
 		speed = speed * 0.95
-	translate_object_local(Vector3(0, 0, -speed))
+	move_and_slide(-speed * global_transform.basis.xform(Vector3(0, 0, 1)), Vector3(0, 1, 0))
 
 	# Turn
 	var turn = 0.0
