@@ -4,10 +4,10 @@ const SPEED = 0.18
 
 export(int) var player_id = 0
 
-var speed_y = 1.0
+var speed_y = 0.5
 
 func _physics_process(delta):
-	speed_y -= 0.04
+	speed_y -= 0.02
 	translate_object_local(SPEED * Vector3(0, speed_y, -1))
 	if translation.y < 0.0:
 		# TODO: Splash effect
