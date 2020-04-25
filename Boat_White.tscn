@@ -100,6 +100,7 @@ surfaces/0 = {
 extents = Vector3( 0.898, 1.695, 2.069 )
 
 [node name="Scene Root" type="KinematicBody"]
+collision_layer = 3
 script = ExtResource( 1 )
 
 [node name="Hull" type="MeshInstance" parent="."]

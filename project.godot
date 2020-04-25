@@ -82,6 +82,11 @@ boat1_volley_right={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Boats"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

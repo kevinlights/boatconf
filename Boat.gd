@@ -35,6 +35,7 @@ func _physics_process(delta):
 	# Shoot
 	if cooldown <= 0.0 and Input.is_action_just_pressed("boat%d_fire" % player_id):
 		var ball = Ball.instance()
+		ball.player_id = player_id
 		ball.transform = transform
 		ball.translate_object_local(Vector3(0, 0, -3.5))
 		world.add_child(ball)
@@ -52,6 +53,7 @@ func _physics_process(delta):
 		cooldown = 2.0
 		for i in range(3):
 			var ball = Ball.instance()
+			ball.player_id = player_id
 			ball.transform = transform
 			ball.translate_object_local(Vector3(0, 0, -0.8))
 			ball.rotate_y(volley * 1.57)
@@ -60,3 +62,6 @@ func _physics_process(delta):
 
 	# Cooldown
 	cooldown -= delta
+
+func hit_by_ball():
+	print("Boat hit")
