@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Boat.gd" type="Script" id=1]
 [ext_resource path="res://boat/Hull.material" type="Material" id=2]
 [ext_resource path="res://boat/Mast.material" type="Material" id=3]
 [ext_resource path="res://boat/SailWhite.material" type="Material" id=4]
 [ext_resource path="res://boat/SailBlack.material" type="Material" id=5]
+[ext_resource path="res://Fire.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Hull"
@@ -155,3 +156,6 @@ material/0 = ExtResource( 4 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.492, -0.751 )
 shape = SubResource( 7 )
+
+[node name="Fire" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.85 )
