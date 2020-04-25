@@ -19,6 +19,10 @@ config/name="Boat Conf"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Utils="*res://Utils.gd"
+
 [input]
 
 boat0_forward={

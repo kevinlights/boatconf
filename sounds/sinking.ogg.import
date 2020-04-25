@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sinking.ogg-760a92c608fc7306988996a38f5772ac.oggstr"
+
+[deps]
+
+source_file="res://sounds/sinking.ogg"
+dest_files=[ "res://.import/sinking.ogg-760a92c608fc7306988996a38f5772ac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

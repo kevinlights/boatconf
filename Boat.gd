@@ -1,18 +1,22 @@
 extends KinematicBody
 
-export var player_id = 0
-
 const MAX_SPEED = 5.0
 const ACCEL = 0.02
 const MAX_TURN_SPEED = 0.02
 const TURN_ACCEL = 0.05
 
-onready var world = $".."
-var Ball = preload("res://Ball.tscn")
+export var player_id = 0
 
 var speed = 0.0
 var turn_speed = 0.0
 var cooldown = -1.0
+
+const Ball = preload("res://Ball.tscn")
+const SND_SINGLE = preload("res://sounds/single.ogg")
+const SND_VOLLEY = preload("res://sounds/volley.ogg")
+const SND_HIT = preload("res://sounds/hit.ogg")
+const SND_SINKING = preload("res://sounds/sinking.ogg")
+onready var world = $".."
 
 func _physics_process(delta):
 	# Move forward
@@ -34,6 +38,7 @@ func _physics_process(delta):
 
 	# Shoot
 	if cooldown <= 0.0 and Input.is_action_just_pressed("boat%d_fire" % player_id):
+		Utils.play_sound(translation, SND_SINGLE)
 		var ball = Ball.instance()
 		ball.player_id = player_id
 		ball.transform = transform
@@ -51,6 +56,7 @@ func _physics_process(delta):
 		volley = -1
 	if volley != 0:
 		cooldown = 2.0
+		Utils.play_sound(translation, SND_VOLLEY)
 		for i in range(3):
 			var ball = Ball.instance()
 			ball.player_id = player_id
@@ -65,3 +71,4 @@ func _physics_process(delta):
 
 func hit_by_ball():
 	print("Boat hit")
+	Utils.play_sound(translation, SND_HIT)
