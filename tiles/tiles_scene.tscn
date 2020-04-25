@@ -229,11 +229,11 @@ surfaces/0 = {
 "vertex_count": 208
 }
 
-[sub_resource type="BoxShape" id=29]
-extents = Vector3( 0.337284, 1, 1 )
-
 [sub_resource type="BoxShape" id=30]
 extents = Vector3( 1, 1, 0.465544 )
+
+[sub_resource type="BoxShape" id=29]
+extents = Vector3( 0.337284, 1, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -254,10 +254,9 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="CornerNW"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.784997, 0, 0.529531 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CornerNW/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0551348, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.729862, 0, 0.529531 )
 shape = SubResource( 4 )
 
 [node name="CornerSE" type="MeshInstance" parent="."]
@@ -266,9 +265,9 @@ mesh = SubResource( 5 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="CornerSE"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.605532, 0, -0.62441 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CornerSE/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.605532, 0, -0.62441 )
 shape = SubResource( 6 )
 
 [node name="CornerSW" type="MeshInstance" parent="."]
@@ -277,9 +276,9 @@ mesh = SubResource( 7 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="CornerSW"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73683, 0, -0.633084 )
 
 [node name="CollisionShape" type="CollisionShape" parent="CornerSW/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73683, 0, -0.633084 )
 shape = SubResource( 8 )
 
 [node name="EdgeE" type="MeshInstance" parent="."]
@@ -288,9 +287,9 @@ mesh = SubResource( 9 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="EdgeE"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617947, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdgeE/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.617947, 0, 0 )
 shape = SubResource( 10 )
 
 [node name="EdgeN" type="MeshInstance" parent="."]
@@ -299,9 +298,9 @@ mesh = SubResource( 11 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="EdgeN"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5279 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdgeN/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5279 )
 shape = SubResource( 12 )
 
 [node name="EdgeS" type="MeshInstance" parent="."]
@@ -310,9 +309,9 @@ mesh = SubResource( 13 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="EdgeS"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.611985 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdgeS/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.611985 )
 shape = SubResource( 14 )
 
 [node name="EdgeW" type="MeshInstance" parent="."]
@@ -321,10 +320,9 @@ mesh = SubResource( 15 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="EdgeW"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.735786, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdgeW/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0220542, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.713732, 0, 0 )
 shape = SubResource( 16 )
 
 [node name="Full" type="MeshInstance" parent="."]
@@ -342,15 +340,15 @@ mesh = SubResource( 19 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="WaterCornerNE"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779889, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerNE/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779889, 0, 0 )
 shape = SubResource( 20 )
 
 [node name="StaticBody2" type="StaticBody" parent="WaterCornerNE"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.666882 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerNE/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.666882 )
 shape = SubResource( 21 )
 
 [node name="WaterCornerNW" type="MeshInstance" parent="."]
@@ -359,17 +357,15 @@ mesh = SubResource( 22 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="WaterCornerNW"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.660146, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerNW/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0277953, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687941, 0, 0 )
 shape = SubResource( 23 )
 
 [node name="StaticBody2" type="StaticBody" parent="WaterCornerNW"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.694599 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerNW/StaticBody2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0208465 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.673752 )
 shape = SubResource( 24 )
 
 [node name="WaterCornerSE" type="MeshInstance" parent="."]
@@ -378,17 +374,15 @@ mesh = SubResource( 25 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="WaterCornerSE"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79406, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerSE/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0138974, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.780162, 0, 0 )
 shape = SubResource( 26 )
 
 [node name="StaticBody2" type="StaticBody" parent="WaterCornerSE"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.526931 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerSE/StaticBody2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0208466 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.547778 )
 shape = SubResource( 27 )
 
 [node name="WaterCornerSW" type="MeshInstance" parent="."]
@@ -397,13 +391,13 @@ mesh = SubResource( 28 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="WaterCornerSW"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6669, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerSW/StaticBody"]
-shape = SubResource( 29 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.52003 )
+shape = SubResource( 30 )
 
 [node name="StaticBody2" type="StaticBody" parent="WaterCornerSW"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.52003 )
 
 [node name="CollisionShape" type="CollisionShape" parent="WaterCornerSW/StaticBody2"]
-shape = SubResource( 30 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6669, 0, 0 )
+shape = SubResource( 29 )
