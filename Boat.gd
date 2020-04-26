@@ -86,6 +86,7 @@ func hit_by_ball():
 	print("Boat hit, player=%d, health=%d" % [player_id, health])
 	Utils.play_sound(translation, SND_HIT)
 	if health <= 0:
+		Utils.play_sound(translation, SND_SINKING)
 		emit_signal("died", player_id)
 		$SinkTimer.start()
 	$Fire.badness = clamp((3 - health) / 3.0, 0.0, 1.0)
