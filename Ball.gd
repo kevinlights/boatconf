@@ -8,6 +8,7 @@ var speed_y = 0.5
 
 const SFX_SPLASH = preload("res://sounds/splash.ogg")
 const Splash = preload("res://Splash.tscn")
+const Explosion = preload("res://Explosion.tscn")
 onready var world = $".."
 
 func _physics_process(delta):
@@ -27,5 +28,8 @@ func _body_entered(body):
 
 	if body.has_method("hit_by_ball"):
 		body.hit_by_ball()
-		# TODO: Explosion effect
+		var explosion = Explosion.instance()
+		explosion.translation = translation
+		explosion.emitting = true
+		world.add_child(explosion)
 		queue_free()
