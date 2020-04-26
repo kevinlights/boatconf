@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://noisetexture.tres" type="Texture" id=1]
 [ext_resource path="res://noisetexture_small.tres" type="Texture" id=2]
 [ext_resource path="res://Boat_White.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Boat_Black.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tiles/tiles_library.tres" type="MeshLibrary" id=5]
+[ext_resource path="res://World.gd" type="Script" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 subdivide_width = 50
@@ -260,6 +261,7 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 5, 0, 5, 0, 4, 0, 4, 0, 7, 1, 6
 shader = SubResource( 27 )
 
 [node name="World" type="Spatial"]
+script = ExtResource( 6 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1.55e-08, 0.935019, -0.354599, 4.08709e-08, 0.354599, 0.935019, 1, -1.42109e-14, -4.37114e-08, -10.191, 18.7202, 0 )
@@ -290,3 +292,8 @@ __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+[connection signal="timeout" from="ResetTimer" to="." method="new_round"]

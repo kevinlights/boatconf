@@ -1,5 +1,7 @@
 extends KinematicBody
 
+signal died(player_id)
+
 const MAX_SPEED = 5.0
 const ACCEL = 0.02
 const MAX_TURN_SPEED = 0.02
@@ -74,4 +76,7 @@ func hit_by_ball():
 	health -= 1
 	print("Boat hit, player=%d, health=%d" % [player_id, health])
 	Utils.play_sound(translation, SND_HIT)
+	if health == 0:
+		emit_signal("died", player_id)
+		queue_free()
 	$Fire.badness = clamp((3 - health) / 3.0, 0.0, 1.0)
