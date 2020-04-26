@@ -2,6 +2,6 @@
 
 Game created for the Boat conference, October 2019.
 
-Itch.io page (soon)
+[Itch.io page](https://remram44.itch.io/boatconf)
 
-screenshot (soon)
+![screenshot](assets/screenshot.png)
