@@ -10,6 +10,7 @@ export var player_id = 0
 var speed = 0.0
 var turn_speed = 0.0
 var cooldown = -1.0
+var health = 5
 
 const Ball = preload("res://Ball.tscn")
 const SND_SINGLE = preload("res://sounds/single.ogg")
@@ -70,5 +71,7 @@ func _physics_process(delta):
 	cooldown -= delta
 
 func hit_by_ball():
-	print("Boat hit")
+	health -= 1
+	print("Boat hit, player=%d, health=%d" % [player_id, health])
 	Utils.play_sound(translation, SND_HIT)
+	$Fire.badness = clamp((3 - health) / 3.0, 0.0, 1.0)

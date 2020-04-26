@@ -34,6 +34,7 @@ script = ExtResource( 2 )
 [node name="Particles" type="Particles" parent="."]
 emitting = false
 amount = 64
+preprocess = 2.0
 visibility_aabb = AABB( -2.02262, -0.549595, -3.20032, 4.04524, 5.19685, 6.40064 )
 local_coords = false
 process_material = SubResource( 3 )
