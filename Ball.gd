@@ -7,6 +7,7 @@ export(int) var player_id = 0
 var speed_y = 0.5
 
 const SFX_SPLASH = preload("res://sounds/splash.ogg")
+const Splash = preload("res://Splash.tscn")
 onready var world = $".."
 
 func _physics_process(delta):
@@ -14,7 +15,10 @@ func _physics_process(delta):
 	translate_object_local(SPEED * Vector3(0, speed_y, -1))
 	if translation.y < 0.0:
 		Utils.play_sound(translation, SFX_SPLASH)
-		# TODO: Splash effect
+		var splash = Splash.instance()
+		splash.translation = translation
+		splash.emitting = true
+		world.add_child(splash)
 		queue_free()
 
 func _body_entered(body):
