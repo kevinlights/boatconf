@@ -20,3 +20,7 @@ desktop.ini
 *.tar.bz2
 *.zip
 *.whl
+
+# Godot export
+*.x86_64
+*.exe
