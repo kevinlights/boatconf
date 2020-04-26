@@ -6,6 +6,7 @@ const MAX_SPEED = 5.0
 const ACCEL = 0.02
 const MAX_TURN_SPEED = 0.02
 const TURN_ACCEL = 0.05
+const SINK_SPEED = 1.0
 
 export var player_id = 0
 
@@ -22,6 +23,11 @@ const SND_SINKING = preload("res://sounds/sinking.ogg")
 onready var world = $".."
 
 func _physics_process(delta):
+	# Sink
+	if health <= 0:
+		translate(Vector3(0.0, -delta * SINK_SPEED, 0.0))
+		return
+
 	# Move forward
 	if Input.is_action_pressed("boat%d_forward" % player_id):
 		speed = speed * (1.0 - ACCEL) + MAX_SPEED * ACCEL
@@ -73,10 +79,13 @@ func _physics_process(delta):
 	cooldown -= delta
 
 func hit_by_ball():
+	if health <= 0:
+		return
+
 	health -= 1
 	print("Boat hit, player=%d, health=%d" % [player_id, health])
 	Utils.play_sound(translation, SND_HIT)
-	if health == 0:
+	if health <= 0:
 		emit_signal("died", player_id)
-		queue_free()
+		$SinkTimer.start()
 	$Fire.badness = clamp((3 - health) / 3.0, 0.0, 1.0)

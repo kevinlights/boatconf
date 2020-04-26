@@ -159,3 +159,8 @@ shape = SubResource( 7 )
 
 [node name="Fire" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.85 )
+
+[node name="SinkTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="SinkTimer" to="." method="queue_free"]
