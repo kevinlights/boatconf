@@ -12,7 +12,7 @@ export var player_id = 0
 
 var speed = 0.0
 var turn_speed = 0.0
-var cooldown = -1.0
+var cooldown = 4.0
 var health = 5
 
 const Ball = preload("res://Ball.tscn")
