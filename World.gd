@@ -9,7 +9,7 @@ const SPAWN_POINTS = [
 	Vector2(-11, 0),
 ]
 
-const Boat = preload("res://Boat_Black.tscn")
+const Boat = preload("res://Boat.tscn")
 
 onready var world = $".."
 
