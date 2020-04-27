@@ -20,7 +20,20 @@ const SND_SINGLE = preload("res://sounds/single.ogg")
 const SND_VOLLEY = preload("res://sounds/volley.ogg")
 const SND_HIT = preload("res://sounds/hit.ogg")
 const SND_SINKING = preload("res://sounds/sinking.ogg")
+const FLAGS = [
+	preload("res://flags/black.png"),
+	preload("res://flags/white.png"),
+	preload("res://flags/france.png"),
+	preload("res://flags/germany.png"),
+]
 onready var world = $".."
+
+func _ready():
+	var mat = preload("res://boat/Sail.material").duplicate()
+	mat.albedo_texture = FLAGS[player_id - 1]
+	for child in $Mesh.get_children():
+		if child.name.left(4) == "Sail":
+			child.set("material/0", mat)
 
 func _physics_process(delta):
 	# Sink
