@@ -9,6 +9,7 @@ const TURN_ACCEL = 0.05
 const SINK_SPEED = 1.0
 
 export var player_id = 0
+export var control = "key1"
 
 var speed = 0.0
 var turn_speed = 0.0
@@ -42,7 +43,7 @@ func _physics_process(delta):
 		return
 
 	# Move forward
-	if Input.is_action_pressed("boat%d_forward" % player_id):
+	if Input.is_action_pressed("%s_forward" % control):
 		speed = speed * (1.0 - ACCEL) + MAX_SPEED * ACCEL
 	else:
 		speed = speed * 0.95
@@ -50,16 +51,16 @@ func _physics_process(delta):
 
 	# Turn
 	var turn = 0.0
-	if Input.is_action_pressed("boat%d_left" % player_id):
+	if Input.is_action_pressed("%s_left" % control):
 		turn += 1.0
-	if Input.is_action_pressed("boat%d_right" % player_id):
+	if Input.is_action_pressed("%s_right" % control):
 		turn -= 1.0
 	turn = clamp(turn, -1.0, 1.0) * MAX_TURN_SPEED
 	turn_speed = turn_speed * (1.0 - TURN_ACCEL) + turn * TURN_ACCEL
 	rotate(Vector3(0, 1, 0), turn_speed)
 
 	# Shoot
-	if cooldown <= 0.0 and Input.is_action_just_pressed("boat%d_fire" % player_id):
+	if cooldown <= 0.0 and Input.is_action_just_pressed("%s_fire" % control):
 		Utils.play_sound(translation, SND_SINGLE)
 		var ball = Ball.instance()
 		ball.player_id = player_id
@@ -72,9 +73,9 @@ func _physics_process(delta):
 	var volley = 0
 	if cooldown > 0.0:
 		pass
-	elif Input.is_action_just_pressed("boat%d_volley_left" % player_id):
+	elif Input.is_action_just_pressed("%s_volley_left" % control):
 		volley = 1
-	elif Input.is_action_just_pressed("boat%d_volley_right" % player_id):
+	elif Input.is_action_just_pressed("%s_volley_right" % control):
 		volley = -1
 	if volley != 0:
 		cooldown = 2.0
