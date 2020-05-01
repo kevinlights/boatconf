@@ -59,8 +59,8 @@ func reset():
 	# Make gridmap
 	var map = $"../GridMap"
 	map.clear()
-	for y in range(-7, 7):
-		for x in range(-7, 7):
+	for y in range(-9, 9):
+		for x in range(-9, 9):
 			var idx = 0
 			for i in [[0, 0, 8], [1, 0, 4], [0, 1, 2], [1, 1, 1]]:
 				if not water_tiles.has([x + i[0], y + i[1]]):
