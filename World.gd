@@ -3,14 +3,6 @@ extends Node
 # This is set on a separate node "PlayerManager" instead of World simply so that
 # it can run while the World is paused
 
-const SPAWN_POINTS = [
-	Vector2(-12, -12),
-	Vector2(7, -12),
-	Vector2(13, 0),
-	Vector2(6, 18),
-	Vector2(-11, 12),
-	Vector2(-11, 0),
-]
 # Maps the tiles from their binary order to the order in the meshlib
 const MAP_TILES = [
 	-1, 1, 0, 5, 3, 7, 14, 11,
@@ -98,8 +90,13 @@ func reset():
 	var diff = max(worldmax.z - worldmin.z, 0.75 * (worldmax.x - worldmin.x))
 	camera.translate_object_local(Vector3(0.0, 0.0, 0.627 * diff))
 
-	# TODO: Pick spawn points
-	spawn_points = SPAWN_POINTS
+	# Pick spawn points
+	spawn_points = []
+	for pos in water_tiles.keys():
+		pos = map.transform.basis.xform(map.map_to_world(pos[0], 0, pos[1]))
+		pos -= Vector3(2.5, 0.0, 2.5)
+		pos.y = 0.0
+		spawn_points.append(pos)
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
@@ -112,7 +109,7 @@ func _process(delta):
 				print("Player %d joined, %s" % [player_id, control])
 				var i = randi() % len(spawn_points)
 				var boat = Boat.instance()
-				boat.translation = Vector3(spawn_points[i].x, 0.0, spawn_points[i].y)
+				boat.translation = spawn_points[i]
 				boat.player_id = player_id
 				boat.control = control
 				boat.connect("died", self, "_on_player_lost")
