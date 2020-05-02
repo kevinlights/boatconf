@@ -1,9 +1,14 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://noisetexture.tres" type="Texture" id=1]
 [ext_resource path="res://noisetexture_small.tres" type="Texture" id=2]
+[ext_resource path="res://key1.png" type="Texture" id=4]
 [ext_resource path="res://tiles/tiles_library.tres" type="MeshLibrary" id=5]
 [ext_resource path="res://World.gd" type="Script" id=6]
+[ext_resource path="res://Barlow-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://xbox.png" type="Texture" id=8]
+[ext_resource path="res://key2.png" type="Texture" id=9]
+[ext_resource path="res://ps.png" type="Texture" id=10]
 
 [sub_resource type="PlaneMesh" id=1]
 subdivide_width = 50
@@ -258,6 +263,26 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 5, 0, 5, 0, 4, 0, 4, 0, 7, 1, 6
 [sub_resource type="ShaderMaterial" id=28]
 shader = SubResource( 27 )
 
+[sub_resource type="DynamicFont" id=29]
+size = 24
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 18
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=31]
+size = 20
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 15
+extra_spacing_bottom = 15
+font_data = ExtResource( 7 )
+
 [node name="World" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
@@ -298,16 +323,129 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
-[node name="PlayerManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="."]
 pause_mode = 2
 script = ExtResource( 6 )
 
-[node name="ResetTimer" type="Timer" parent="PlayerManager"]
+[node name="ResetTimer" type="Timer" parent="GameManager"]
 wait_time = 3.0
 one_shot = true
 
-[node name="StartTimer" type="Timer" parent="PlayerManager"]
-wait_time = 3.0
-one_shot = true
-[connection signal="timeout" from="PlayerManager/ResetTimer" to="PlayerManager" method="reset"]
-[connection signal="timeout" from="PlayerManager/StartTimer" to="PlayerManager" method="start_round"]
+[node name="Title" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowJoin" type="Label" parent="Title"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 29 )
+text = "Press \"shoot\" to join"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status" type="Label" parent="Title"]
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.3
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 30 )
+text = "0 players joined"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="GridContainer" parent="Title"]
+anchor_left = 0.2
+anchor_top = 0.6
+anchor_right = 0.8
+anchor_bottom = 1.0
+size_flags_stretch_ratio = 0.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="key2_text" type="Label" parent="Title/Controls"]
+margin_right = 305.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 31 )
+text = "keyboard:"
+align = 2
+
+[node name="key2" type="TextureRect" parent="Title/Controls"]
+margin_left = 309.0
+margin_right = 614.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+
+[node name="key1_text" type="Label" parent="Title/Controls"]
+margin_top = 58.0
+margin_right = 305.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 31 )
+text = "keyboard:"
+align = 2
+
+[node name="key1" type="TextureRect" parent="Title/Controls"]
+margin_left = 309.0
+margin_top = 58.0
+margin_right = 614.0
+margin_bottom = 112.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+
+[node name="xbox_text" type="Label" parent="Title/Controls"]
+margin_top = 116.0
+margin_right = 305.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 31 )
+text = "xbox:"
+align = 2
+
+[node name="xbox" type="TextureRect" parent="Title/Controls"]
+margin_left = 309.0
+margin_top = 116.0
+margin_right = 614.0
+margin_bottom = 170.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="ps_text" type="Label" parent="Title/Controls"]
+margin_top = 174.0
+margin_right = 305.0
+margin_bottom = 228.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 31 )
+text = "playstation:"
+align = 2
+
+[node name="ps" type="TextureRect" parent="Title/Controls"]
+margin_left = 309.0
+margin_top = 174.0
+margin_right = 614.0
+margin_bottom = 228.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 5
+[connection signal="timeout" from="GameManager/ResetTimer" to="GameManager" method="reset"]

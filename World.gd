@@ -17,6 +17,7 @@ onready var world = $".."
 var players = {}
 var controls = {}
 var spawn_points = []
+var start_countdown = 0.0
 
 func _ready():
 	randomize()
@@ -28,6 +29,9 @@ func reset():
 
 	# Pause until the game starts
 	get_tree().paused = true
+
+	# Show title
+	$"../Title".visible = true
 
 	# Delete remaining players
 	for child in players.values():
@@ -99,11 +103,13 @@ func reset():
 		spawn_points.append(pos)
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("reset"):
 		reset()
-	for control in CONTROLS:
-		if Input.is_action_just_pressed("%s_fire" % control):
-			if not controls.has(control):
+	if get_tree().paused:
+		for control in CONTROLS:
+			if Input.is_action_just_pressed("%s_fire" % control):
+				if controls.has(control):
+					continue
 				# Player joined, make a boat
 				var player_id = len(players)
 				print("Player %d joined, %s" % [player_id, control])
@@ -119,11 +125,20 @@ func _process(delta):
 				controls[control] = player_id
 
 				if len(players) >= 2:
-					$StartTimer.start()
+					start_countdown = 3.0
+
+		if len(players) >= 2:
+			start_countdown -= delta
+			if start_countdown <= 0.0:
+				start_round()
+			$"../Title/Status".text = "%d players have joined, starting in %.1f" % [len(players), start_countdown]
+		else:
+			$"../Title/Status".text = "%d players have joined, need 2" % len(players)
 
 # Enough players have joined and timer has elapsed, start
 func start_round():
 	print("ROUND START")
+	$"../Title".visible = false
 	get_tree().paused = false
 
 func _on_player_lost(player_id):
