@@ -1,6 +1,6 @@
 # Boatconf
 
-Game created for the Boat conference, October 2019.
+Game created for Ben's **Boat Conference** event in Brooklyn.
 
 [Itch.io page](https://remram44.itch.io/boatconf)
 
