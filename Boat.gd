@@ -23,8 +23,10 @@ const SND_HIT = preload("res://sounds/hit.ogg")
 const SND_SINKING = preload("res://sounds/sinking.ogg")
 const FLAGS = [
 	preload("res://flags/black.png"),
-	preload("res://flags/white.png"),
 	preload("res://flags/france.png"),
+	preload("res://flags/canada.png"),
+	preload("res://flags/brazil.png"),
+	preload("res://flags/white.png"),
 	preload("res://flags/germany.png"),
 ]
 onready var world = $".."
