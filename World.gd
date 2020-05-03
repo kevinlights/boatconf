@@ -105,6 +105,8 @@ func reset():
 func _process(delta):
 	if Input.is_action_just_pressed("reset"):
 		reset()
+	if Input.is_action_just_pressed("fullscreen"):
+		OS.window_fullscreen = not OS.window_fullscreen
 	if get_tree().paused:
 		for control in CONTROLS:
 			if Input.is_action_just_pressed("%s_fire" % control):
