@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://noisetexture.tres" type="Texture" id=1]
 [ext_resource path="res://noisetexture_small.tres" type="Texture" id=2]
@@ -283,6 +283,124 @@ extra_spacing_top = 15
 extra_spacing_bottom = 15
 font_data = ExtResource( 7 )
 
+[sub_resource type="DynamicFont" id=32]
+size = 1000
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=33]
+resource_name = "Anim"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("3/text:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("3/text:custom_colors/font_outline_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("2/text:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("2/text:custom_colors/font_outline_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("1/text:custom_colors/font_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 2, 2.3, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("1/text:custom_colors/font_outline_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2, 2.3, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("1:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ) ]
+}
+
 [node name="World" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
@@ -316,7 +434,7 @@ material/0 = SubResource( 28 )
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -2.1, 0 )
 mesh_library = ExtResource( 5 )
 data = {
-"cells": PoolIntArray( 1, 0, 1, 2, 0, 11, 3, 0, 8, 4, 0, -536870904, 65531, 0, 8, 65532, 0, 536870920, 65533, 0, 4, 1, 1, 7, 2, 1, 536870920, 3, 1, 8, 4, 1, 8, 65531, 1, 8, 65532, 1, 8, 65533, 1, 4, 65534, 1, 1, 65535, 1, 0, 0, 2, 0, 1, 2, 3, 2, 2, 9, 3, 2, 536870920, 4, 2, 8, 65531, 2, 8, 65532, 2, 8, 65533, 2, 536870924, 65534, 2, 11, 65535, 2, 536870924, 0, 3, 12, 1, 3, 5, 2, 3, 11, 3, 3, 8, 4, 3, 8, 65531, 3, 8, 65532, 3, 8, 65533, 3, 8, 65534, 3, 8, 65535, 3, 8, 0, 4, 8, 1, 4, 536870920, 2, 4, 8, 3, 4, 8, 4, 4, 8, 65531, 4, 8, 65532, 4, 8, 65533, 4, 8, 65534, 4, 536870920, 65535, 4, 8, 0, 65531, 8, 1, 65531, 8, 2, 65531, 536870920, 3, 65531, 536870920, 4, 65531, 536870920, 65531, 65531, 8, 65532, 65531, 8, 65533, 65531, 8, 65534, 65531, 8, 65535, 65531, 8, 0, 65532, 8, 1, 65532, 8, 2, 65532, 536870920, 3, 65532, 8, 4, 65532, 8, 65531, 65532, 8, 65532, 65532, 8, 65533, 65532, 536870920, 65534, 65532, 8, 65535, 65532, 536870920, 0, 65533, 6, 1, 65533, 536870921, 2, 65533, 8, 3, 65533, 8, 4, 65533, 8, 65531, 65533, 536870920, 65532, 65533, 8, 65533, 65533, 10, 65534, 65533, 536870918, 65535, 65533, 6, 1, 65534, 7, 2, 65534, 8, 3, 65534, 536870920, 4, 65534, 8, 65531, 65534, 536870920, 65532, 65534, -1610612728, 65533, 65534, 4, 1, 65535, 3, 2, 65535, 9, 3, 65535, 8, 4, 65535, 8, 65531, 65535, 8, 65532, 65535, 8, 65533, 65535, 4 )
+"cells": PoolIntArray( 1, 0, 1, 2, 0, 11, 3, 0, 8, 4, 0, 8, 65531, 0, 536870920, 65532, 0, 536870920, 65533, 0, 536870916, 1, 1, 7, 2, 1, 8, 3, 1, 536870920, 4, 1, 8, 65531, 1, 536870920, 65532, 1, 8, 65533, 1, 4, 65534, 1, 1, 65535, 1, 0, 0, 2, 536870912, 1, 2, 536870915, 2, 2, 536870921, 3, 2, 8, 4, 2, 8, 65531, 2, 8, 65532, 2, 8, 65533, 2, 12, 65534, 2, 536870923, 65535, 2, 12, 0, 3, 12, 1, 3, 5, 2, 3, 11, 3, 3, 8, 4, 3, 8, 65531, 3, 8, 65532, 3, 8, 65533, 3, 8, 65534, 3, 8, 65535, 3, 8, 0, 4, 536870920, 1, 4, 8, 2, 4, 536870920, 3, 4, 8, 4, 4, 8, 65531, 4, 8, 65532, 4, 536870920, 65533, 4, 8, 65534, 4, 8, 65535, 4, 8, 0, 65531, 8, 1, 65531, 8, 2, 65531, 536870920, 3, 65531, 536870920, 4, 65531, 536870920, 65531, 65531, 8, 65532, 65531, 8, 65533, 65531, 8, 65534, 65531, 8, 65535, 65531, 8, 0, 65532, 536870920, 1, 65532, 8, 2, 65532, 8, 3, 65532, 8, 4, 65532, 8, 65531, 65532, 8, 65532, 65532, 8, 65533, 65532, 8, 65534, 65532, 8, 65535, 65532, 536870920, 0, 65533, 6, 1, 65533, 9, 2, 65533, 8, 3, 65533, 536870920, 4, 65533, 536870920, 65531, 65533, 8, 65532, 65533, 8, 65533, 65533, 10, 65534, 65533, 536870918, 65535, 65533, 6, 1, 65534, 7, 2, 65534, 8, 3, 65534, 536870920, 4, 65534, -1610612728, 65531, 65534, 8, 65532, 65534, 8, 65533, 65534, 536870916, 1, 65535, 536870915, 2, 65535, 536870921, 3, 65535, 536870920, 4, 65535, 8, 65531, 65535, 536870920, 65532, 65535, 536870920, 65533, 65535, 536870916 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -448,4 +566,70 @@ margin_bottom = 228.0
 texture = ExtResource( 10 )
 expand = true
 stretch_mode = 5
+
+[node name="Countdown" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="Node2D" parent="Countdown"]
+
+[node name="text" type="Label" parent="Countdown/3"]
+pause_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+custom_fonts/font = SubResource( 32 )
+custom_colors/font_color = Color( 1, 1, 1, 0 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="Node2D" parent="Countdown"]
+
+[node name="text" type="Label" parent="Countdown/2"]
+pause_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+custom_fonts/font = SubResource( 32 )
+custom_colors/font_color = Color( 1, 1, 1, 0 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="Node2D" parent="Countdown"]
+scale = Vector2( 0.1, 0.1 )
+
+[node name="text" type="Label" parent="Countdown/1"]
+pause_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 5
+custom_fonts/font = SubResource( 32 )
+custom_colors/font_color = Color( 1, 1, 1, 0 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 0 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Countdown"]
+pause_mode = 2
+anims/Anim = SubResource( 33 )
 [connection signal="timeout" from="GameManager/ResetTimer" to="GameManager" method="reset"]
+[connection signal="ready" from="Countdown/AnimationPlayer" to="Countdown/AnimationPlayer" method="play" binds= [ "Anim" ]]
