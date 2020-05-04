@@ -1,6 +1,6 @@
 extends Spatial
 
-const MAX_PARTICLES = 64
+const MAX_PARTICLES = 32
 
 export(float) var badness = 0.0 setget _set_badness
 

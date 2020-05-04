@@ -40,7 +40,7 @@ func _set_health(new_health):
 		Utils.play_sound(translation, SND_SINKING)
 		emit_signal("died", player_id)
 		$SinkTimer.start()
-	fire.badness = clamp((3 - health) / 3.0, 0.0, 1.0)
+	fire.badness = [1.0, 0.8, 0.4, 0.1, 0.05, 0.0][int(health)]
 
 func _ready():
 	var mat = preload("res://boat/Sail.material").duplicate()
