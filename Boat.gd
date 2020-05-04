@@ -14,7 +14,7 @@ export var control = "key1"
 var speed = 0.0
 var turn_speed = 0.0
 var cooldown = 4.0
-var health = 5
+export(int, 0, 5) var health = 5 setget _set_health
 
 const Ball = preload("res://Ball.tscn")
 const SND_SINGLE = preload("res://sounds/single.ogg")
@@ -30,6 +30,17 @@ const FLAGS = [
 	preload("res://flags/germany.png"),
 ]
 onready var world = $".."
+onready var fire = $Fire
+
+func _set_health(new_health):
+	health = new_health
+	if not fire:
+		return
+	if health <= 0:
+		Utils.play_sound(translation, SND_SINKING)
+		emit_signal("died", player_id)
+		$SinkTimer.start()
+	fire.badness = clamp((3 - health) / 3.0, 0.0, 1.0)
 
 func _ready():
 	var mat = preload("res://boat/Sail.material").duplicate()
@@ -101,8 +112,4 @@ func hit_by_ball():
 	health -= 1
 	print("Boat hit, player=%d, health=%d" % [player_id, health])
 	Utils.play_sound(translation, SND_HIT)
-	if health <= 0:
-		Utils.play_sound(translation, SND_SINKING)
-		emit_signal("died", player_id)
-		$SinkTimer.start()
-	$Fire.badness = clamp((3 - health) / 3.0, 0.0, 1.0)
+	_set_health(health)
